@@ -1,0 +1,68 @@
+<?php
+$name = $_POST['name'];
+$email = $_POST['email'];
+$pass = $_POST['pass'];
+$con_pass = $_POST['con_pass'];
+
+//Database Connection
+$conn = new mysqli('localhost','root','','registration', 3307);
+    if($conn->connect_error){
+        //echo "$conn->connect_error";
+        die("Connection Failed : ".$conn->connect_error);
+    } else {
+        $stmt = $conn->prepare("insert into registration_data(name, email, pass, con_pass) values(?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $name, $email, $pass, $con_pass);
+        /*$execval = */$stmt->execute();
+        //echo $execval;
+        echo "Registration successfully...";
+        echo "<a href='read.php'>View Data</a>";
+        $stmt->close();
+        $conn->close();
+    }
+?>
+
+//
+<?php
+echo "<style>";
+    echo "table, tr, td, th{border:1px solid black; border-collapse;}";
+    echo "th, td{padding:5px 10px;}";
+echo "</style>";
+
+$con=mysqli_connect("localhost", "root",'','registration', 3307);
+mysqli_select_db($con, "registration");
+
+$result = mysqli_query($con, "SELECT * FROM registration_data");
+echo "<table>";
+echo "<tr>";
+    echo "<th> Name </th>";
+    echo "<th> Email </th>";
+    echo "<th> Password </th>";
+    echo "<th> Confirm Password </th>";
+echo "</tr>";
+    while($row=mysqli_fetch_array($result)){
+        $temp1=$row['name'];
+        $temp2=$row['email'];
+        $temp3=$row['pass'];
+        $temp4=$row['con_pass'];
+            echo "<tr><td> $temp1 </td>";
+            echo "<td> $temp2 </td>";
+            echo "<td> $temp3 </td>";
+            echo "<td> $temp4 </td></tr>";
+    }
+mysqli_close($con);
+echo "</table>";
+
+
+
+<?php
+    $conn = new mysqli('localhost','root','','registration', 3307);
+
+    mysqli_select_db($conn,"registration");
+    $temp1=$_POST["name"];
+    $temp2=$_POST["email"];
+    $sql=("UPDATE registration_data set email = '$temp2' where name = '$temp1'");
+    mysqli_query($conn,$sql);
+    mysqli_close($conn);
+    echo "Database successfully updated";
+    echo "<a href='read.php'>View Data</a>";
+?>

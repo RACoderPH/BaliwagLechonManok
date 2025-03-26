@@ -1,0 +1,20 @@
+<html>
+    <head>
+    <title>Baliwag Lechon Manok</title>
+    <script src="script.js"></script>
+    <script src="jquery.js"></script>
+    </head>
+<body>
+
+    <div class = "login-box">
+            <h1>Login</h1>
+           <form onsubmit="return Signin();" action="web.html" method="POST">
+                <input type="text" placeholder="Username" id="uname" pattern="[a-zA-Z]{5,10}">
+                <label id="lbluser" style="color: red; visibility:hidden;">Invalid</label><br>
+                <input type="password" placeholder="Password" id="pass">
+                <label id="lblpass" style="color: red; visibility:hidden;">Invalid</label><br>
+                <button type="submit">Submit</button>
+           </form>
+    </div>
+</body>
+</html>

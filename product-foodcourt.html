@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<head>
+	<title>Baliwag Lechon</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body{
+			margin: 0px;
+			font-family: Arial;
+			background: #077a3e;
+
+		}
+
+		#Cart {
+			height: 5%;
+			width: 5%;
+			cursor: pointer;
+		}
+
+	#main-container{
+	
+		margin: 4px;
+		float: left;
+		height: 500px;
+  		width: 24.4%;
+		margin-top: 50px;
+		color: black;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-size: 17px;
+	}
+	#myCart{
+		border-collapse: collapse;
+		text-align: center;
+		align-items: center;
+	}
+	#myCart tr td, th{
+		padding: 10px;
+		width: 200px;
+		position: relative;
+	}
+	#myCart tr th{
+		background-color: #2b6130;
+		color: aliceblue;
+	}
+	#myCart tr td{
+		text-align: left;
+	}
+	#myCart tr td.right{
+		text-align: right;
+	}
+	.add{
+		margin-top: 20px;
+	}
+	.subtotal{
+		font-weight: bold;
+	}
+	.modal-bg{
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 2000px;
+		width: 100%;
+		background-color:rgba(0, 0,0, 0.5);
+		visibility: hidden;
+		opacity: 0;
+		display: block;
+		align-content: center;
+		align-self: center;
+		transition:  visibility 0s opacity 0.5s;
+	}
+	h2{
+		font-size: 25px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-style: oblique;
+	}
+	.bg-active{
+		visibility: visible;
+		opacity: 1;
+	}
+	.modal{
+		background-color: white;
+		border-radius: 5px;
+		padding: 5px;
+		margin-top: 200px;
+		margin-left: 400px;
+		position: relative;
+		width: 500px;
+		height: auto;
+		display: flex;
+		justify-content: center;
+		align-self: center;
+	}
+	.modal-close{
+		position: absolute;
+		top:0;
+		font-size: 20px;
+		right: 10px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-weight: bold;
+	}
+	.modal-close:hover{
+		position: absolute;
+		top:0px;
+		right: 10px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-weight: bold;
+		color: red;
+		cursor: pointer;
+	}
+	.removebtn{
+		font-weight: bold;
+		color: aliceblue;
+	}
+	.removebtn:hover{
+		font-weight: bold;
+		cursor: pointer;
+		color: red;
+	}
+	#cart-container h2{
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-size: 40px;
+		font-style: inherit;
+		text-align: center;
+
+	}
+	#sms{
+		width: 50%;
+		border: 2px solid #aaa;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+	#sms:focus{
+	border-color: dodgerblue;
+	box-shadow: 0 0 8px 0 dodgerblue;	
+	
+	}
+	#address{
+		width: 50%;
+		border: 2px solid #aaa;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+	.form-modalshow{
+		visibility: visible;
+		position: relative;
+		justify-content: center;
+		background-color: rgba(0, 0, 0,0.5);
+		width: 100%;
+		height: 100%;
+	}
+	.form-modal{
+		top: 0;
+		align-self: center;
+		align-content: center;
+		visibility: visible;
+		position: relative;
+		display: block;
+		justify-content: center;
+		background-color: rgba(0, 0, 0,0.5);
+		width: 100%;
+		height: 100%;
+	}
+	.LM {
+  display: none;
+}
+.LMshow {
+  display: contents;
+}
+.Liempo {
+  display: none;
+}
+.Liemposhow {
+  display: contents;
+}
+.Sisig {
+  display: none;
+}
+.Sisigshow {
+  display: contents;
+}
+.RT {
+  display: none;
+}
+.RTshow {
+  display: contents;
+}
+.BS {
+  display: none;
+}
+.BSshow {
+  display: contents;
+}
+.DB {
+  display: none;
+}
+.DBshow {
+  display: contents;
+}
+.Dilis {
+  display: none;
+}
+.Dilisshow {
+  display: contents;
+}
+.Squid {
+  display: none;
+}
+.Squidshow {
+  display: contents;
+}
+.container{
+	font-size: 15px;
+	text-align: left;
+	border-bottom-right-radius: 37%;
+	padding-bottom: 20px;
+	background: white;
+  
+  box-shadow: 0 14px 28px rgba(0, 0, 0,25), 0 10px 10px rgba(0,0,0, 0.22); 
+}
+h3{
+font-size: 16px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-style: normal;
+	
+}
+.container img{
+
+	height: 100%;
+	width: 100%;
+
+}
+.container p{
+	margin-left: 25px;
+	margin-right: 15px;
+	margin-top: -10px;
+}
+.container h3{
+	margin-top: -8px;
+
+}
+.designcontain:hover{
+  border: 5px solid #fff;
+}
+
+.main-container{
+		background: white;
+	height: 90vh;
+}
+.modals {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-contents {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+.close-button:hover {
+    background-color: darkgray;
+}
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+
+.modals1 {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-contents1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
+.close-buttons {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+.close-buttons:hover {
+    background-color: darkgray;
+}
+.show-modals {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+.form-group{
+	margin-top: 15%;
+}
+.form-control{
+	align-content: center;
+	align-self: center;
+	text-align: center;
+	width: 100%;
+	font-size: 15px;
+	border:solid 2px black;
+	height: 10%;
+	border-radius: 5px;
+	margin: 5px;
+}
+.form-controls{
+	text-align: center;
+	width: 100%;
+	height: 50px;
+	color: white;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 15px;
+	cursor: pointer;
+	border: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	margin-left: 5px;
+	background-size: 200%;
+	transition: 0.6s;
+	background-image: linear-gradient(to left,#FFC312,#EE5A24,#FFC312);
+}
+.form-controls:hover{
+	background-position: right;
+}
+h5{
+	text-align: center;
+	font-size: 25px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	text-transform: uppercase;
+}
+#btn{
+	text-align: center;
+	width: 45%;
+	height: 20px;
+	margin-left: 10px;
+	color: white;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 15px;
+	cursor: pointer;
+	border: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	background-size: 200%;
+	transition: 0.6s;
+	background-image: linear-gradient(to left,#FFC312,#EE5A24,#FFC312);
+}
+#btn:hover{
+	background-position: right;
+}
+.designcontain{
+	background-color: #156d3b;
+	box-shadow: 0 14px 28px rgba(0, 0, 0,25), 0 10px 10px rgba(0,0,0, 0.22);
+	border: 5px solid rgba(76, 175, 80, 0.1);
+}
+#Check{
+	text-align: center;
+	width: 45%;
+	height: 20px;
+	margin-left: 10px;
+	color: white;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 15px;
+	cursor: pointer;
+	border: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	background-size: 200%;
+	transition: 0.6s;
+	background-image: linear-gradient(to left,#18bd4b,#118a36,#18bd4b);
+}
+.container button{
+	margin-left: 100px;
+}
+#place{
+	color: white;
+	margin-top: 30px;
+	text-align: center;
+	font-size: 35px;
+	background-color: #156d3b;
+	padding: 20px;
+}
+
+#gps{
+text-align: center;
+color: white;
+font-size: 30px;
+transition: transform 80ms ease-in;
+}
+#gps:active {
+    transform: scale(0.95);
+}
+
+#gps:focus{
+    outline: none;
+}
+#gps.ghost {
+    background: transparent;
+    
+ }
+#gps img{
+	width: 10%;
+}
+#gps a{
+	text-decoration: none;
+	color: white;
+}
+input{
+	width: 50px;
+}
+
+
+	</style>
+  <link rel = "stylesheet" href="style1.css">
+  <link rel="shortcut icon" href="fabicon.png" type="image/x-icon">
+	<script src="jquery-3.4.1.js"></script>
+</head>
+<body>
+	<nav>
+		<div class="logo">
+			<img src="logo.jpg">
+		</div>
+		<ul class="nav-links">
+			<li><a href="file:///C:/Users/omeng/OneDrive/Documents/Ils/web.html">Home</a></li>
+			<li><a href="file:///C:/Users/omeng/OneDrive/Documents/Ils/carrer.html">Career</a></li>
+			<li><a href="file:///C:/Users/omeng/OneDrive/Documents/Ils/history.html">History</a></li>
+			<li><a href="file:///C:/Users/omeng/OneDrive/Documents/Ils/branches.html">Branches</a></li>
+			<li><a href="file:///C:/Users/omeng/OneDrive/Documents/Ils/Products.html">Products</a></li>
+			<li><a href="file:///C:/Users/omeng/OneDrive/Documents/Ils/Contact%20Us.html">Contact Us</a></li>
+		</ul>
+		<img id="Cart" src="cart.png"></button>
+	</nav>
+	<DIV id="place">
+	Foodcourt, SM City Baliwag, Doña Remedios Trinidad Highway, Barangay Pagala, Baliwag, 3006 Bulacan
+</DIV>
+    <div id="main-container">
+		<div class="designcontain">
+		<div class="container">
+				<img src="product2.jpg" alt="">
+			<p class="item"><h3>Lechon manok</h3></p>
+			
+      <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+			<p class="price">260.php</p>
+			Quantity:<input type="number" id="quantity1" value="1">
+			<Button class="add" onclick="product1()">Add to Cart</Button>
+		</div>
+	</div>	
+</div>
+	
+	<div id="main-container">
+			<div class="designcontain">
+		<div class="container">
+				<img src="product3.jpg" alt="">
+			<p class="item"><h3>Liempo</h3></p>
+			<p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+			<p class="price">300.php</p>
+			Quantity:<input type="number" id="quantity2" value="1">
+			<Button class="add" onclick="product2()">Add to Cart</Button>
+		</div></div>	
+	</div>	
+
+	<div id="main-container">
+			<div class="designcontain">
+		<div class="container">
+				<img src="product1.jpg" alt="">
+			<p class="item"><h3>Sisig</h3></p>
+			<p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+			<p class="price">100.php</p>
+			Quantity:<input type="number" id="quantity3" value="1">
+			<Button class="add" onclick="product3()">Add to Cart</Button>
+		</div></div>
+	</div>	
+	<div id="main-container">
+			<div class="designcontain">
+			<div class="container">
+					<img src="product4.jpg" alt="">
+				<p class="item"><h3>Relyenong Tilapia</h3></p>
+				<p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+				<p class="price">230.php</p>
+				Quantity:<input type="number" id="quantity4" value="1">
+				<Button class="add" onclick="product4()">Add to Cart</Button>
+			</div>
+		</div>	</div>
+	<div id="main-container">
+			<div class="designcontain">
+			<div class="container">
+					<img src="product7.jpg" alt="">
+				<p class="item"><h3>Buttered Shrimp</h3></p>
+				<p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+				<p class="price">300.php</p>
+				Quantity:<input type="number" id="quantity5" value="1">
+				<Button class="add" onclick="product5()">Add to Cart</Button>
+			</div></div>
+		</div>	
+		
+		<div id="main-container">
+				<div class="designcontain">
+			<div class="container">
+					<img src="product5.jpg" alt="">
+				<p class="item"><h3>Daing na Bangus</h3></p>
+				<p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+				<p class="price">325.php</p>
+				Quantity:<input type="number" id="quantity6" value="1">
+				<Button class="add" onclick="product6()">Add to Cart</Button>
+			</div>
+		</div>	</div>
+
+		<div id="main-container">
+				<div class="designcontain">
+			<div class="container">
+					<img src="product9.jpg" alt="">
+				<p class="item"><h3>Dilis</h3></p>
+				<p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+				<p class="price">350.php</p>
+				Quantity:<input type="number" id="quantity7" value="1">
+				<Button class="add" onclick="product7()">Add to Cart</Button>
+			</div>
+		</div>	
+	</div>
+		<div id="main-container">
+				<div class="designcontain">
+			<div class="container">
+					<img src="product8.jpg" alt="">
+				<p class="item"><h3>Sweet and Sour Squid</h3></p>
+				<p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+				<p class="price">450.php</p>
+				Quantity:<input type="number" id="quantity8" value="1">
+				<Button class="add" onclick="product8()">Add to Cart</Button>
+			</div>
+		</div>
+		
+	</div>
+	<div class="gps-contain">
+			<div id="gps">
+				<div>
+						<a href="https://www.google.com/maps/place/Baliwag+Lechon+Manok+Atbp/@14.9615824,120.8892413,17z/data=!4m8!1m2!2m1!1sbaliwag+lechon!3m4!1s0x3396fffc3dd64dcd:0x1978aaec410e3ecd!8m2!3d14.961883!4d120.891666"> 
+					<img src="location.png">
+				</div>
+				<div>
+					Location
+				</a>
+			</div>
+		</div>
+	</div>
+	
+		
+					<!--Modal-->
+					<div class="modal-bg">
+						<div class="modal">
+				<div id="cart-container">
+					<div class="close-cart" id="open-cart">
+						<h2>My cart</h2>
+						<table id="myCart">
+						  <tr class="title">
+							<th>Item Name</th>
+							<th>Qty</th>
+							<th>Price</th>
+							<th>Total</th>
+							<th>Remove Item</th>
+							<th>Add Item</th>
+						  </tr>
+			
+						  <tr class="LM" id="item1">
+							<th>Lechon Manok</th>
+							<th><p class="qty1" id="qty1">0</p></th>
+							<th>&#8369; <span class="price1">260</span></th>
+							<th>&#8369; <span id="total1">0</span></th>
+							<th onclick="delete1()" class="removebtn">Remove</th>
+							<th><input type="number" name="qty" id="add" class="adding"></th>
+							<th onclick="adding1()" class="addbtn">Add</th>
+						  </tr>
+						</table>
+			
+						<table id="myCart">
+						  <tr class="Liempo" id="item2">
+							<th>Liempo</th>
+							<th><p class="qty2" id="qty2">0</p></th>
+							<th>&#8369; <span class="price2">300</span></th>
+							<th>&#8369; <span id="total2">0</span></th>
+							<th onclick="delete2()" class="removebtn">Remove</th>
+							<th><input type="number" name="qty" id="add2" class="adding"></th>
+							<th onclick="adding2()" class="addbtn">Add</th>
+						  </tr>
+						</table>
+			
+						<table id="myCart">
+						  <tr class="Sisig" id="item3">
+							<th>Sisig</th>
+							<th><p class="qty3" id="qty3">0</p></th>
+							<th>&#8369; <span class="price3">100</span></th>
+							<th>&#8369; <span id="total3">0</span></th>
+							<th onclick="delete3()" class="removebtn">Remove</th>
+							<th><input type="number" name="qty" id="add3" class="adding"></th>
+							<th onclick="adding3()" class="addbtn">Add</th>
+						  </tr>
+						</table>
+						
+						<table id="myCart">
+							<tr class="RT" id="item4">
+							  <th>Relyenong Tilapia</th>
+							  <th><p class="qty4" id="qty4">0</p></th>
+							  <th>&#8369; <span class="price4">230</span></th>
+							  <th>&#8369; <span id="total4">0</span></th>
+							  <th onclick="delete4()" class="removebtn">Remove</th>
+							  <th><input type="number" name="qty" id="add4" class="adding"></th>
+							<th onclick="adding4()" class="addbtn">Add</th>
+							</tr>
+						</table>
+						
+						<table id="myCart">
+								<tr class="BS" id="item5">
+								  <th>Buttered Shirmp</th>
+								  <th><p class="qty5" id="qty5">0</p></th>
+								  <th>&#8369; <span class="price5">430</span></th>
+								  <th>&#8369; <span id="total5">0</span></th>
+								  <th onclick="delete5()" class="removebtn">Remove</th>
+								  <th><input type="number" name="qty" id="add5" class="adding"></th>
+							<th onclick="adding5()" class="addbtn">Add</th>
+								</tr>
+							</table>
+
+							<table id="myCart">
+								<tr class="DB" id="item6">
+								  <th>Daing na Bangus</th>
+								  <th><p class="qty6" id="qty6">0</p></th>
+								  <th>&#8369; <span class="price6">325</span></th>
+								  <th>&#8369; <span id="total6">0</span></th>
+								  <th onclick="delete6()" class="removebtn">Remove</th>
+								  <th><input type="number" name="qty" id="add6" class="adding"></th>
+							<th onclick="adding6()" class="addbtn">Add</th>
+								</tr>
+							</table>
+
+							<table id="myCart">
+								<tr class="Dilis" id="item7">
+								  <th>Dilis</th>
+								  <th><p class="qty7" id="qty7">0</p></th>
+								  <th>&#8369; <span class="price7">430</span></th>
+								  <th>&#8369; <span id="total7">0</span></th>
+								  <th onclick="delete7()" class="removebtn">Remove</th>
+								  <th><input type="number" name="qty" id="add7" class="adding"></th>
+							<th onclick="adding7()" class="addbtn">Add</th>
+								</tr>
+							</table>
+							<table id="myCart">
+								<tr class="Sweet and Sour Squid" id="item8">
+								  <th>Sweet and Sour Squid</th>
+								  <th><p class="qty8" id="qty8">0</p></th>
+								  <th>&#8369; <span class="price8">450</span></th>
+								  <th>&#8369; <span id="total8">0</span></th>
+								  <th onclick="delete8()" class="removebtn">Remove</th>
+								  <th><input type="number" name="qty" id="add8" class="adding"></th>
+							<th onclick="adding8()" class="addbtn">Add</th>
+								</tr>
+							</table>
+
+
+
+						<h3 class="sub">
+						  Subtotal : &#8369;
+						  <span class="AmountTotal" id="AmountTotal">0</span>
+						</h3>
+						<button class="trigger" type="button" id="Check" >CheckOut</button>
+  						<div class="modals">
+    					<div class="modal-contents">
+						<span class="close-button">&times;</span>
+
+						<h5>Payment Section</h5>
+						<button  id="btn" class="triggers">Credit Card</button>
+						<button  id="btn" class="trigger">Cashon Delivery</button>
+						<div class="form-group">
+								<form action="https://formspree.io/omengangeles27@gmail.com" method="POST" id="contact">
+									<input type="email" name="name" id="email" placeholder="Your email" class="form-control"><br>
+									<input type="text"  id="add" placeholder="Your Address" class="form-control"><br>
+									<input type="text" name="number" id="num" placeholder="Contact Number" class="form-control"><br>
+									<input type="submit" onclick="Purchase()" value="Send" id="send" class="form-controls">
+								</form>
+						</div>
+						
+        
+    </div>
+</div>
+
+<div class="modals1">
+		<div class="modal-contents1">
+		<span class="close-buttons">&times;</span>
+
+		<div class="form-groups">
+				<h5>Credit Card</h5>
+				<button id="btn" class="triggers">Credit Card</button>
+				<button id="btn" class="trigger">Cashon Delivery</button>
+
+			<form action="https://formspree.io/omengangeles27@gmail.com" method="POST">
+				<input type="email" id="email" name="email" placeholder="Your Email" class="form-control"><br>
+				<input type="text" id="add" placeholder="Your Address" class="form-control"><br>
+				<input type="tel" id="num" placeholder="Contact no#" class="form-control"><br>
+				<input type="text" name="Expiry" id="" placeholder="Credit Card Number" class="form-control">
+				<input onclick="Purchase()" type="button" value="Submit" class="form-controls">
+				</form>
+		</div>
+		
+
+</div>
+</div>
+					<span class="modal-close">X</span>
+
+				</div>
+			</div>
+			</div>
+
+				<script src="script.js"></script>
+				<script>
+
+				 var modal = document.querySelector(".modals");
+				 var modal1 = document.querySelector(".modals1");
+                var trigger = document.querySelector(".trigger");
+				var trigger1 = document.querySelector(".triggers");
+                var closeButton = document.querySelector(".close-button");
+				var closeButton1 = document.querySelector(".close-buttons");
+            
+                function toggleModal() {
+                    modal.classList.toggle("show-modal");
+                }
+            
+                function windowOnClick(event) {
+                    if (event.target === modal) {
+						toggleModal();
+                    }
+                }
+            
+                trigger.addEventListener("click", toggleModal);
+                closeButton.addEventListener("click", toggleModal);
+				window.addEventListener("click", windowOnClick);
+
+
+					//modal2
+				function toggleModal1() {
+                    modal1.classList.toggle("show-modals");
+                }
+            
+                function windowOnClick(event) {
+                    if (event.target === modal1) {
+						toggleModal();
+                    }
+                }
+            
+                trigger1.addEventListener("click", toggleModal1);
+                closeButton1.addEventListener("click", toggleModal1);
+				window.addEventListener("click", windowOnClick);
+				
+				</script>
+    </body>
+    </html>

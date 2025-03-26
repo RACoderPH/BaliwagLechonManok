@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>
+	<title>Baliwag Lechon</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <link rel = "stylesheet" href="style1.css">
+    <style>
+    body{
+        
+			margin: 0px;
+			font-family: Arial;
+            background: #077a3e;
+			height: 100%;
+			width: 100%;
+		
+    }
+    P{
+        font-size: 25px;
+        font-family: century gothic;
+        text-align: center;
+        color: white;
+        
+    }
+    h1{
+        font-family: century gothic; 
+        text-align: center;
+        font-size: 30px;
+        width: 500px;
+        margin-left: 330px;
+    }
+    h4{
+        top: 0%;
+        font-size: 30px;
+        color: antiquewhite;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: normal;
+        letter-spacing: 2px;
+    }
+    #pro{
+        height: 50%;
+        width: 50%;
+        border-radius: 5px;
+        box-shadow: 0 04px 18px rgba(0, 0, 0,25), 0 5px 5px rgba(0,0,0, 0.12);
+        margin-top: 20px;
+    }
+    .hist{
+        text-align: center;
+    }
+    
+    </style>
+    <link rel="shortcut icon" href="fabicon.png" type="image/x-icon">
+</head>
+<body>
+	<nav>
+		<div class="logo">
+                <img src="logo.jpg">
+		</div>
+		<ul class="nav-links">
+            <li><a href="Ils/web.html">Home</a></li>
+            <li><a href="carrer.html">Career</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="branches.html">Branches</a></li>
+            <li><a href="Products.html">Product</a></li>
+            <li><a href="Contact Us.html">Contact Us</a></li>
+		</ul>
+    </nav>
+        <div class="hist">
+              <img id="pro" name="slide" src="manok.jpeg" style="width:80%; height: 450px">
+        </div>
+   <div class="txt">
+       <h1>History</h1>
+    <p id="txt">
+        The Lechon Manok craze swept the nation in the 1980’s. It was practically impossible for the ordinary citizen to leave his home and arrive at any destination without seeing at least two competing lechon manok kiosks in the streets.
+    </p>
+    <p id="txt">
+        During this time, Dwight and Dolores Salcedo were busy trying out small new ventures simply to “earn a little bit more income to make ends meet.” Aside from their regular day jobs, the couple also ventured into renting out Betamax tapes and got involved with the bus transportation business. However, due to the political and economic crises in the country at that time, achieving even that humble goal of making ends meet proved to be a challenge.
+    </p>
+    <p id="txt">
+        So in November of 1985, with two little babies just born and willing to try any new thing out, the couple pooled P5000 from their savings and borrowed another P5000 from their parents to put up their own lechon manok kiosk at Project 8, Quezon City, very close to where they lived then. Without any MBAs which are common amongst entrepreneurs today, they went about with the business in their own unique ways. For example:
+    </p>
+    <h1>
+        Why the name “Baliwag”?
+    </h1>
+    <p id="txt">
+        Dolores was born and raised in Baliwag, Bulacan. She said that the simple utterance of the province evoked memories of true Filipino foods and hospitality. “If the name can have that same effect on the ordinary Filipino, the business just might have a good chance of succeeding,” she thought.
+    </p>
+    <h1>How did the recipes come about?</h1>
+    <p id="txt">
+        Lacking any extra funds to hire renowned chefs, the couple enlisted the help of Dolores’s cousin, Boy, who had a knack for cooking Filipino meals, to come up with starting recipes for the lechon manok, liempo, and sauce. Then, the original recipes went through the highly demanding palates of the fathers and mothers, brothers and sisters, cousins, former schoolmates, and officemates of both Dwight and Dolores, with the recipe being slightly adjusted for every valid comment and criticism.
+    </p>
+    <p id="txt">
+        The simple and grounded ways with which the couple has gone about their business has allowed the company to remain standing and to become one of the iconic Filipino brand names nearly 25 years after it was started and, God willing, for decades more to come.
+    </p>
+    
+</div>
+<footer id="foot"><img src="foot.png" ></footer>
+    <script>
+    var i = 0;
+    var images = [];
+    var time = 5000;
+
+    images[0]="manok.jpeg";
+    images[1]="product2.jpg";
+    images[2]="product4.jpg";
+
+    function changeImage(){
+        document.slide.src = images[i];
+
+        if (i < images.length - 1) {
+            i++;
+        } else {
+            i = 0;
+        }
+        setTimeout("changeImage()",time);
+    }
+    window.onload = changeImage;
+    </script>
+</body>
+</html>

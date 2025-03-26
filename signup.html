@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Baliwag Lechon</title>
+        <script src="script.js"></script>
+        <script src="jquery.js"></script>
+    </head>
+    <body>
+        <h1>SignUp</h1>
+        <form onsubmit="return SignUp()" action="web.html" method="POST">
+                <input type="text" placeholder="Name" id="name" pattern="[a-zA-Z]{5,}"required>
+               <br>
+                <input type="email" placeholder="Email" id="email" required>
+               <br>
+                <input type="password" placeholder="Password" id="pass"required>
+                <br>
+                <input type="password" placeholder="ConfirmPassword" id="cpwd"required>
+                <br>
+                <button type="submit">Register</button>
+        </form>
+   </body>
+</html>

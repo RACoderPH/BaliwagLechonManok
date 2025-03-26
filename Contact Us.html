@@ -1,0 +1,185 @@
+	<html>
+	<head>
+	<title>Contact Us</title>
+	<style>
+	
+	body{
+			margin: 0px;
+			font-family: Arial;
+			background: #077a3e;
+			height: 100%;
+			width: 100%;
+		}
+	
+
+
+.help{
+	color: #fff;
+	margin-top: 30Wpx; 
+	
+
+}
+
+.yea{
+	color:white;
+	margin-left: 200px;
+}
+
+
+.yah{
+	margin-left: 300px;
+			justify-content: center;
+	display: flex;
+
+
+	}
+	
+	#con{
+		margin-top: -35px;
+		padding-bottom: 15px;
+		text-align: center;
+		background: #156d3b;
+	}
+
+	#con1{
+		padding-top: 15px;
+		padding-bottom: 5px;
+		font-size: 50px;
+		text-align: center;
+		background: #156d3b;
+	}
+
+
+	input[type=text], select {
+  width: 160%;
+  padding: 12px 9px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+input[type=email], select {
+  width: 160%;
+  padding: 12px 9px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+textarea, select {
+  width: 160%;
+  padding: 12px 9px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.button{
+	background: #077a3e;
+	border: 1px solid #fff;
+	text-align: center;
+	padding: 5px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	width: 160%;
+	color: #fff;
+	border-radius: 6px;
+}
+#line{
+	margin-top: 10px;
+	border: solid 2px white;
+}
+#vision{
+	text-align: center;
+	font-size: 25px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: whitesmoke;
+	margin:10px;
+}
+#vision h1{
+	font-size: 35px;
+	letter-spacing: 2px;
+	color: whitesmoke;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+	
+	</style>
+	  <link rel = "stylesheet" href="style1.css">
+	<link rel="shortcut icon" href="fabicon.png" type="image/x-icon">
+	</head>
+	<body>
+
+			<nav>
+					<div class="logo">
+						<img src="logo.jpg">
+					</div>
+					<ul class="nav-links">
+				<li><a href="web.html">Home</a></li>
+				<li><a href="carrer.html">Career</a></li>
+				<li><a href="history.html">History</a></li>
+				<li><a href="branches.html">Branches</a></li>
+				<li><a href="Products.html">Product</a></li>
+				<li><a href="Contact Us.html">Contact Us</a></li>
+					</ul>
+				</nav>
+<div class="help">
+		
+			<h1 id="con1"> Contact Us </h1>
+			<h3 id="con">Got a question? We'd love to hear from you. Send us a message 
+			<br>and we'll respong as soon as possible. </h3>
+			<div class="yah">
+			
+	<div class="title">
+		<form action="https://formspree.io/omengangeles27@gmail.com" method="POST">
+			
+			<input type="text" placeholder="First Name" id="first"><br>
+			<input type="text" placeholder="Last Name" id="last"><br>
+			<input type="email" placeholder="Email" id="mail"><br>
+			<Textarea name="message" placeholder="Your questions..." rows="5" id="message"></Textarea>
+			<br> 
+
+			<input type="submit" name="" class="button" value="SEND MESSAGE" onclick="contact()">
+		</form>
+	</div>
+	<div class="yea"><br><br><br>
+<img src="location.png" style="width: 2.5%">&nbsp;&nbsp; &nbsp; 	# 1 Mercedez Avenue, Pasig City
+<br><br><br>
+<img src="phone.png" style="width: 2.5%">	&nbsp;&nbsp; &nbsp; 63 (2) 654-2929 63 (2) 654-9001 63(2) 654-9002
+
+<br><br><br>
+<img src="mail.png" style="width: 3.5%">    &nbsp;&nbsp;  inquiry@baliwaglechonmanok.com
+	
+		</div>
+</div>
+		<div id="line"></div>
+		</div>
+
+		<div id="Vision">
+		<h1>About us</h1>
+		
+			<p>To our Beloved customers. Our company value our workplace by offering them competitive salaries, incentives, and trainings. Baliwag Leachon Manok aims to provide easy access to its patron by opening more outlets in strategic locations worldwide 
+				through company-led efforts and through franchising.</p>
+		</div>
+	</body>
+	<script>
+		function contact(){
+			var firstname = document.getElementById("first").value;
+			var Lastname = document.getElementById("last").value;
+			var email = document.getElementById("mail").value;
+			var message = document.getElementById("message").value;
+
+
+			if (firstname === "",Lastname ==="",email === "",message ==="") {
+				alert("Fillout all the fields");
+			}
+			 else {
+				alert("Successfull");
+			}
+		}
+	</script>
+	</html>

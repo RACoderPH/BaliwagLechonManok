@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<head>
+	<title>Baliwag Lechon</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel = "stylesheet" href="style1.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/d3js/5.12.0/d3.min.js"></script>
+	<script src="jquery.js"></script>
+	<style>
+	body{
+			margin: 0px;
+			font-family: Arial;
+			background: #077a3e;
+			height: 100%;
+			width: 100%;
+		}
+
+	.txt{
+	font-size: 30px;
+	font-family: 'Times New Roman', Times, serif;
+	color:white;
+	padding: 20px;
+	text-align: center;
+	font-style: oblique;
+	font-display: none;
+	font-weight: 100;
+}
+.box{
+	padding: 5px;
+	margin: 5px;
+}
+.box p{
+	font-size: 25px;
+	color: white;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.box h2{
+	font-size: 30px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: white;
+	letter-spacing: 2px;
+	text-align: center;
+}
+.box li{
+	list-style: disc;
+	font-size: 25px;
+	color: white;
+	margin: 20px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+input{
+	height: 60px;
+	align-content: center;
+	align-self: center;
+	text-align: center;
+	width: 50%;
+	font-size: 20px;
+	font-size: 15px;
+	border:solid 2px black;
+	height: 10%;
+	border-radius: 5px;
+	margin: 5px;
+}
+.form{
+	text-align: center;
+}
+#send{
+	border-radius: 5px;
+	background-color: #077a3e;
+	font-size: 15px;
+	color: aliceblue;
+	width: 25%;
+	cursor: pointer;
+	height: 50px;
+}
+#send:hover{
+	border-radius: 5px;
+	background-color :white;
+	font-size: 15px;
+	color: green;
+	width: 25%;
+	cursor: pointer;
+	height: 50px;
+}
+	</style>
+	<link rel="shortcut icon" href="fabicon.png" type="image/x-icon">
+</head>
+<body>
+	<nav>
+		<div class="logo">
+				<img src="logo.jpg">
+		</div>
+		<ul class="nav-links">
+			<li><a href="Ils/web.html">Home</a></li>
+				<li><a href="carrer.html">Career</a></li>
+				<li><a href="history.html">History</a></li>
+				<li><a href="branches.html">Branches</a></li>
+				<li><a href="Products.html">Product</a></li>
+				<li><a href="Contact Us.html">Contact Us</a></li>
+		</ul>
+    </nav>
+    <div class="box">
+			
+					<h2>Now Hiring!</h2>
+			
+					<p id="txt">RESTAURANT / ROVING SUPERVISOR</p><br>
+						<ul>
+							<li>Male or Female,not more than 37yrs old</li>
+							<li>Preferably HRM graduate</li>
+							<li>With atleast 2 to 3 years work experience in the same capacity</li>
+							<li>With Strong Background in store operstions,implementation of food safety and sanitation procedure , financial analysis and administrative works</li>
+							<li>Goal and people oriented</li>
+							<li>Computer literate</li>
+							<li>Must be willing to work overtime and be assigned different areas in Metro Manial and nearby Province</li>
+						</ul>
+					<p id="txt">FIELD SUPERVISOR</p><br>
+					<ul>
+							<li>Male not more than 37yrs old</li>
+							<li>Graduate of any 4 years course</li>
+							<li>With atleast 2 to 3 years work experience in the same capacity</li>
+							<li>Skilled in driving (with professional driver's license)</li>
+							<li>Goal and oral and written communication skills</li>
+							<li>Computer literate</li>
+							<li>Must be willing to work overtime and be assigned different areas in Metro Manial and nearby Province</li>
+						</ul>
+					<p id="txt">COOK</p><br>
+					<ul>
+							<li>Male or Female,not more than 38yrs old</li>
+							<li>College level</li>
+							<li>With atleast 2 to 3 years work experience in the same capacity</li>
+							<li>wide knowledge in menu costing planning and writting kitchen reports</li>
+							<li>Must be willing to work overtime and be assigned different areas in Metro Manial and nearby Province</li>
+						</ul>
+					<p id="txt">BARTENDER / WATER / FOOD SERVER</p><br>
+					<ul>
+							<li>Male 20-38 years old</li>
+							<li>College level</li>
+							<li>With atleast 1 year work experience in a food service industry and in the same capacity</li>
+							<li>Goal and people Oriented</li>
+							<li>Must be willing to work overtime and be assigned different areas in Metro Manial and nearby Province</li>
+						</ul>
+					<p id="txt">GRILLMAN/FOOD HANDLER</p><br>
+					<ul>
+							<li>Male 18-26 years old</li>
+							<li>Atleast High School Graduate</li>
+							<li>Work experience in the same capacity in advantage</li>
+							<li>Must be willing to work overtime and be assigned different areas in Metro Manial and nearby Province</li>
+						</ul>
+					<p id="txt">CASHIER/RECEPTIONIST</p><br>
+					<ul>
+							<li>Male or Female,not more than 37yrs old</li>
+							<li>College level</li>
+							<li>Work experience in the same capacity in advantage</li>
+							<li>Must be willing to work overtime and be assigned different areas in Metro Manial and nearby Province</li>
+						</ul>
+						
+						<div class="form">
+					<form action="https://formspree.io/omengangeles27@gmail.com" method="POST" id="contact">
+						<input type="text" name="name" id="name" placeholder="First Name"><br>
+						<input type="email" name="_replyto" id="msil" placeholder="Your Email"><br>
+						<input type="file" name="file" id="file"><br>
+						<input type="submit" value="Send" id="send">
+					</form>
+				</div>
+				
+</div>
+<footer id="foot"><img src="foot.png" ></footer>
+<script>
+	
+
+	/*
+$('#contact').submit(function(e){
+var name = document.getElementById("name");
+var email = document.getElementById("msil");
+
+
+if (name.value === "" || email.value === "") {
+	alert("Please check Entries");
+} else {
+	$.ajax({
+		url:"https://formspree.io/omengangeles27@gmail.com",
+		method: "POST",
+		data:$(this).serialize(),
+		dataType:"json"
+	});
+	e.preventDefault()
+	$(this).get(0).reset()
+	alert("Message sent!!!!");
+}
+});
+
+/*
+	var ajax = {
+		isSubmiting :false,
+		send:function(){
+
+			if (ajax.isSubmiting == false) {
+				ajax.isSubmiting = true;
+			
+			var email = $("input[name=name]").val();
+
+			if (email === "") {
+				alert("Form nolt Completed");
+			} else {
+
+
+				ajax.SetText("Sendingg...")
+				$.post("career.php", {
+					name: name
+				},function(data){
+					if (data === "true") {
+						ajax.SetText("Sent");
+					}
+					else{
+						ajax.SetText("Send mail!");
+						alert(data);
+					}
+					ajax.isSubmiting = false;
+				});
+			}
+		}
+		else{
+			alert("You can Only send");s
+		}
+		},
+		SetText: function(text){
+			$("input[type=button]").val(text);
+		}
+	}
+	*/
+</script>
+</body>
+</html>
